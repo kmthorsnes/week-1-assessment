@@ -1,0 +1,86 @@
+## Question 1
+Create a variable and set it equal to 'variable'.
+What are some different data types? Write a few examples
+##########################################################
+
+#String - A data which is stored as a string of text. Letters, symbols or numbers.
+$ variable = 'variable'
+$ variable.class
+=> String
+
+#Numbers - A data which is stored as a whole number - no decimals. Can be both positive and negative numbers.
+$ numbers = 1
+$ numbers.class
+=> Integer
+
+#Float - data with a number which have decimal(s)
+$ Float = 2.5
+$ Float.class
+=> Float
+
+#Boolean - A type of data which can have only one out of two outputs 'true' or 'false'. Often used for answering setting a condition.
+§ 10 == 10
+=> Integer
+$ 5 + 8 == 5 + 5
+=> False
+
+*******************************************************
+## Question 2
+
+Create an array that contains both cars.
+How do we use the array to access the second car? How do we find the second car's `color`?
+
+#Create two hashes, one for each `car`, with the following attributes: `wheels`, `max_speed`, `color`
+##########################################################
+$ car1 = Hash.new
+$ car1 = {wheels: 4, max_speed: 120, color: 'blue'};
+
+$ car2 = Hash.new
+$ car2 = {wheels: 2, max_speed: 20, color: 'red'};
+
+#Create an array that contains both cars.
+$ carsarray = [car1, car2]
+
+#to get car2's color
+§ carsarray[1][:color]
+=> "red"
+
+*******************************************************
+## Question 3 - Classes and Methods
+Create a new folder called `cars` and inside of that folder, create a file called `car.rb` with:
+ - a class Car
+ - a method to "paint" a car a new color.
+Open irb. Load your 'car.rb' file. Create an instance of a `Car` and change its color.
+A: See https://github.com/kmthorsnes/week_1_assessment.git
+Sadly I had to sneak peak at others code to complete this task. 
+##########################################################
+
+*******************************************************
+## Question 4 - Rspec
+Q: How do you initialize `rspec` in a folder? Do it in our cars folder.
+A: - Create Gemfile ($ touch gemfile)
+- Add rspec ad dependency within that file by adding, what's listed under within that file
+**********
+source "https://rubygems.org"
+
+gem "rspec"
+**********
+- run bundle install ($ bundle install)
+- After this, following command: $ rspec --init
+- Open the hidden .rspec file, and insert theese lines:
+**********
+--format documentation
+--color
+--require spec_helper
+**********
+- run rspec command, $ rspec
+- If message of "No examples found" - you are all good.
+
+This is done in the car folder for this assessment
+
+Q: We would ordinarily have written our tests first, then written code to make them pass. Why?
+A: It's good practise to first get an error and then try to solve it.
+If we have no test at first we will meet an expected error and we know that error is because there is no test defined. We can derafter create our test - run it - get an errorm and from there try to solve it.
+
+* Create a unit test for our `Car` class to test our "painting" method.
+* A car should have a driver. Create an `instance_double` `Driver`.  Write a second test for this and make it pass.
